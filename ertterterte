@@ -1,0 +1,71 @@
+
+// app.get('/send-notification', async (req, res) => {
+//   const token = 'dkJNFq3TRRu-adrxsDGg49:APA91bHR0LM4K6TnEBL8HdtRWXmJ2jinlCuRz5fSZs0nQOyrmu96qYizCMIJoOvxz25sNzJkRFfCIWiUon5SPAcsDjoTd99VBMvOKraO6HX9JI2zySR6_uU';
+
+//    const message = {
+//     token,
+//     notification: {
+//       title: '🔊 Sound Test',
+//       body: 'Kya aapko sound sunai di?',
+//     },
+//     android: {
+//       priority: 'high',
+//       notification: {
+//         channelId: 'kubercab_channel', // Same channel ID
+//         sound: 'default',
+//         priority: 'max', // HIGH se MAX karo
+//         defaultSound: true, // Explicitly enable default sound
+//       },
+//     },
+//     apns: {
+//       payload: {
+//         aps: {
+//           sound: 'default',
+//           badge: 1,
+//         },
+//       },
+//     },
+//     data: {
+//       sound: 'default', // Data mein bhi sound add karo
+//       channelId: 'kubercab_channel',
+//     },
+//   };
+
+
+//   try {
+//     const response = await firebaseKuberCabDriver.messaging().send(message);
+//     console.log('✅ Notification sent successfully:', response);
+//     res.json({ success: true, response });
+//   } catch (error) {
+//     console.error('❌ Error sending message:', error);
+//     res.status(500).json({ success: false, error: error.message });
+//   }
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Routes
+
