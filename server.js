@@ -53,8 +53,8 @@ const upload = multer({
 });
 
 // MongoDB connection
-const mongoURL = 'mongodb://localhost:27017';
-const dbName = 'chat_app';
+const mongoURL = "mongodb+srv://HeySatyam:20172522Satyam@cluster0.xqoozjj.mongodb.net/KC?retryWrites=true&w=majority&appName=Cluster0";
+const dbName = "chat_app";
 let db;
  
 // Connect to MongoDB
