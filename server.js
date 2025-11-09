@@ -37,18 +37,23 @@ const storage = multer.diskStorage({
 });
 
 const fileFilter = (req, file, cb) => {
-  if (file.mimetype.startsWith('image/')) {
-    cb(null, true);
-  } else {
-    cb(new Error('Only image files are allowed!'), false);
-  }
+  // if (file.mimetype.startsWith('image/')) {
+  //   cb(null, true);
+  // } else {
+  //   cb(new Error('Only image files are allowed!'), false);
+  // }
+
+
+ cb(null, true);
+
+
 };
 
 const upload = multer({
   storage: storage,
   fileFilter: fileFilter,
   limits: {
-    fileSize: 10 * 1024 * 1024 // 10MB limit
+    fileSize: 1000 * 1024 * 1024 // 10MB limit
   }
 });
 
@@ -97,9 +102,9 @@ app.use('/api/token', (req, res, next) => {
       req.db = db;
       next();
     },require('./routes/token.js'));
-
-
  
+
+   
 
 
 
@@ -185,6 +190,8 @@ app.post('/upload', upload.single('image'), (req, res) => {
       notificationBody = message;
     } else if ( messageType === 'image') {
       notificationBody = '📷 Sent an image';
+    } else if ( messageType === 'video') {
+      notificationBody = '📷 Sent an video';
     } else if ( messageType === 'location') {
       notificationBody = '📍 Shared a location';
     } else {
@@ -779,11 +786,11 @@ socket.on('login', async (data) => {
       const { conversationId, message, senderId, senderRole, messageType = 'text', fileUrl, location } = data;
 
  
-
+ 
 
       const messagesCollection = db.collection('messages');
       const conversationsCollection = db.collection('conversations');
-    
+        
       
       const user = onlineUsers.get(socket.id);
       if (!user) return;
@@ -797,7 +804,11 @@ socket.on('login', async (data) => {
         lastMessagePreview = message;
       } else if (messageType === 'image') {
         lastMessagePreview = '📷 Image';
-      } else if (messageType === 'location') {
+      }
+       else if (messageType === 'video') {
+        lastMessagePreview = '📷 video';
+      }
+      else if (messageType === 'location') {
         lastMessagePreview = '📍 Location';
       }
       
@@ -825,7 +836,7 @@ socket.on('login', async (data) => {
             lastMessageAt: new Date()
           }
         }
-      );
+      ); 
 
 
  
