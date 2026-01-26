@@ -32,14 +32,15 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
   try {
-    const { token, user, docs, name, password } = req.body;
+    const { token, user,channelId, docs, name, password } = req.body;
     const db = req.db;
- 
- 
+
+  console.log(req.body)
     // Update user validation and data
     const updateData = { fcmToken: token };
     
   if (docs) updateData.docs = docs;
+  if (channelId ) updateData.notificationChannelId = channelId;
     if (name) updateData.name = name;
     if (password) {
       // Hash password before storing (use bcrypt in production)
